@@ -1,11 +1,10 @@
 {% extends "blogApp/baseMessage.html" %}
 {% block content %}
-
-  <div class="register" >
+<section id="testDiv">
     <main role="main" class="container">
-      <div class="row newDiv" style="background-color: white; height: 920px; box-shadow: 5px 5px 30px">
+      <div class="row newDiv">
         <div class="col-md-12">
-        <div class='text-center' style="margin-top: 20px">
+        <div class='text-center' >
         <a class="btn btn-dark mb-4" href="{% url 'MessageBoard-home-acending' %}">Sort By Accending</a>
         <a class="btn btn-dark mb-4" href="{% url 'MessageBoard-home' %}">Sort By Decending</a>
         </div>
@@ -39,7 +38,7 @@
       </div>
     </div>
     </main>
-    </div>
+</section>
 {% endblock content %}
 
 <script type="text/javascript">

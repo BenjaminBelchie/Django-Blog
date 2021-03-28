@@ -8,10 +8,13 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.db.models import Q
 
 def home(request):
-	return render(request, 'blogApp/home.html')
+	context={}
+	latestPost = Post.objects.last()
+	context['latest']=latestPost
+	return render(request, 'blogApp/home.html',context)
 
 def test(request):
-	return render(request, 'blogApp/new.html')
+	return render(request, 'blogApp/generic.html')
  
 #Function to render the Home HTML template and the posts which are objects
 
