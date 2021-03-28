@@ -3,9 +3,11 @@ from django.contrib.auth.models import User
 import PIL
 from PIL import Image
 
+
 class Profile(models.Model): #Creating the profile model
 	user = models.OneToOneField(User, on_delete=models.CASCADE) #Setting the user models and also using the .CASCADE so when the user is deleted everything associated with them is deleted
 	image=models.ImageField(default='default.png',upload_to='profile_photos') #Setting the users profile pic
+	bio = models.CharField(max_length=200, default='This is my awesome bio!')
 
 	def __str__(self):
 		return f'{self.user.username} Profile'

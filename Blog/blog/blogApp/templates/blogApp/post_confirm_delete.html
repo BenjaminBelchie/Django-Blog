@@ -1,0 +1,25 @@
+{% extends "blogApp/base.html" %}
+{% block content %}
+<img src="/media/nature.jpg" style="background; width: 100%; height: 100%;">
+	<div class="register" >
+		<main role="main" class="container">
+		  <div class="row newDiv">
+		    <div class="col-md-12">
+				<div class="content-section">
+					<form method="POST">
+						{% csrf_token %}
+						<fieldset class="form-group">
+							<legend class="border-bottom mb-4">Delete Post</legend>
+							<h2>Are you sure that you want to delete the post? "{{object.title}}"</h2>	
+						</fieldset>
+						<div class="form-group">
+							<button class="btn btn-danger btn-sm" type="submit">Delete</button>
+							<a class="btn btn-secondary" type="submit" href="{% url 'post-detail' object.id %}">Cancel</a>	
+						</div>	
+					</form>				
+				</div>
+			</div>
+	      </div>
+	    </main>
+	</div>
+{% endblock content %}

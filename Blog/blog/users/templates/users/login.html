@@ -2,8 +2,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<div class="register" >
 <main role="main" class="container">
-  <div class="row">
+  <div class="row divElement">
     <div class="col-md-12">
 		<div class="content-section">
 			<form method="POST">
@@ -13,7 +14,7 @@
 					{{form|crispy}}	
 				</fieldset>
 				<div class="form-group">
-					<button class="btn btn-outline-info" type="submit">Log In</button>	
+					<button class="btn btn-info" type="submit">Log In</button>	
 				</div>	
 			</form>
 			<div class="boarder-top pt-3">
@@ -23,8 +24,10 @@
 					
 			</div>
 		</div>
-	</div>	    
-  </div>
+	</div>	
+	</div>    
+  
 </main>
+</div>
 
 {% endblock content %}

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="{% static 'blogApp/css/main.css'%}">
+		<link rel="stylesheet" type="text/css" href="{% static 'blogApp/css/ms.css'%}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	</head>
+	<!-- Header -->
+		<header id="header" class="alt">
+			<nav id="nav">
+				<ul>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'blog-home' %}" style="color: black;">Home</a></li>
+					<li><a href="{% url 'MessageBoard-home' %}" style="color: black;">Blog</a></li>
+					<li><a href="{% url 'post-create' %}" style="color: black;">New Post</a></li>
+					<li><a href="{% url 'profile' %}" style="color: black;">Profile</a></li>
+					<li><a href="{% url 'logout' %}" style="color: black;">Logout</a></li>
+					{% else %}
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'login' %}">Login</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</header>
+
+		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+	<body class="landing" style="background-color: #f6f6f6">
+		<div>
+		    {% block content %}{% endblock %}
+		</div>
+		<!-- Scripts -->
+		<script src="{% static 'blogApp/js/jquery.min.js' %}"></script>
+		<script src="{% static 'blogApp/js/skel.min.js' %}"></script>
+		<script src="{% static 'blogApp/js/util.js' %}"></script>
+		<script src="{% static 'blogApp/js/main.js' %}"></script>
+	</body>
+
+</html>
